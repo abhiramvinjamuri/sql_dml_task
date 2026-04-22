@@ -1,0 +1,123 @@
+-- ================================
+-- 1. CREATE DATABASE
+-- ================================
+CREATE DATABASE IF NOT EXISTS practice_db;
+USE practice_db;
+
+-- ================================
+-- 2. CREATE TABLES
+-- ================================
+
+-- Students table
+CREATE TABLE students (
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    city VARCHAR(50)
+);
+
+-- Employees table
+CREATE TABLE employees (
+    emp_id INT,
+    name VARCHAR(50),
+    department VARCHAR(50),
+    salary INT
+);
+
+-- Products table
+CREATE TABLE products (
+    product_id INT,
+    product_name VARCHAR(50),
+    price INT
+);
+
+-- Appointments table (DATE + TIME)
+CREATE TABLE appointments (
+    id INT,
+    patient_name VARCHAR(50),
+    appointment_date DATE,
+    appointment_time TIME
+);
+
+-- Orders table (DATETIME + TIMESTAMP)
+CREATE TABLE orders (
+    order_id INT,
+    item VARCHAR(50),
+    ordered_at DATETIME,
+    shipped_at TIMESTAMP NULL
+);
+
+-- ================================
+-- 3. INSERT COMMAND PRACTICE
+-- ================================
+
+-- Task 1: Insert into students
+INSERT INTO students (id, name, age, city)
+VALUES (1, 'Abhi', 22, 'Hyderabad');
+
+-- Task 2: Insert into employees (without column names)
+INSERT INTO employees
+VALUES (101, 'Ravi', 'HR', 30000);
+
+-- Task 3: Insert 3 records into products
+INSERT INTO products (product_id, product_name, price)
+VALUES
+(1, 'Laptop', 50000),
+(2, 'Mouse', 500),
+(3, 'Keyboard', 1500);
+
+-- Task 4: Insert into appointments (DATE + TIME)
+INSERT INTO appointments
+VALUES (1, 'John', '2024-07-15', '10:30:00');
+
+-- Task 5: Insert into orders (DATETIME + TIMESTAMP)
+INSERT INTO orders (order_id, item, ordered_at, shipped_at)
+VALUES
+(1, 'Phone', '2024-07-10 14:30:00', CURRENT_TIMESTAMP),
+(2, 'Tablet', '2024-07-11 16:00:00', NULL);
+
+-- ================================
+-- 4. UPDATE COMMAND PRACTICE
+-- ================================
+
+-- Task 1
+UPDATE students
+SET city = 'Bangalore'
+WHERE id = 2;
+
+-- Task 2
+UPDATE employees
+SET salary = salary + 5000
+WHERE department = 'HR';
+
+-- Task 3 (NO WHERE - updates ALL)
+UPDATE products
+SET price = 0;
+
+-- Task 4
+UPDATE appointments
+SET appointment_date = '2024-07-20'
+WHERE id = 1;
+
+-- ================================
+-- 5. DELETE COMMAND PRACTICE
+-- ================================
+
+-- Task 1
+DELETE FROM students
+WHERE id = 3;
+
+-- Task 2
+DELETE FROM employees
+WHERE department = 'Finance';
+
+-- Task 3 (NO WHERE - deletes ALL)
+DELETE FROM products;
+
+-- Task 4
+DELETE FROM appointments
+WHERE appointment_date < '2024-06-01';
+
+-- Task 5
+DELETE FROM orders
+WHERE shipped_at IS NULL;
