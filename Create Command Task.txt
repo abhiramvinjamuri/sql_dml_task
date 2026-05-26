@@ -1,0 +1,77 @@
+-- =====================================
+-- 1. CREATE DATABASES
+-- =====================================
+
+CREATE DATABASE IF NOT EXISTS school_db;
+CREATE DATABASE IF NOT EXISTS company_db;
+CREATE DATABASE IF NOT EXISTS library_db;
+CREATE DATABASE IF NOT EXISTS college_db;
+
+-- =====================================
+-- 2. SCHOOL_DB TABLES
+-- =====================================
+
+USE school_db;
+
+-- Task 2: students table
+CREATE TABLE students (
+    id INT,
+    name VARCHAR(50),
+    age INT
+);
+
+-- =====================================
+-- 3. COMPANY_DB TABLES
+-- =====================================
+
+USE company_db;
+
+-- Task 4: employees table
+CREATE TABLE employees (
+    emp_id INT,
+    emp_name VARCHAR(100),
+    salary DECIMAL(10,2),
+    department VARCHAR(50)
+);
+
+-- Task 5: products table
+CREATE TABLE products (
+    product_id INT,
+    product_name VARCHAR(100),
+    price FLOAT
+);
+
+-- =====================================
+-- 4. LIBRARY_DB TABLES
+-- =====================================
+
+USE library_db;
+
+-- Task 7: books table
+CREATE TABLE books (
+    book_id INT,
+    title VARCHAR(150),
+    author VARCHAR(100),
+    price DECIMAL(8,2)
+);
+
+-- Task 8: orders table
+CREATE TABLE orders (
+    order_id INT,
+    customer_name VARCHAR(100),
+    order_date DATE,
+    amount DECIMAL(10,2)
+);
+
+-- =====================================
+-- 5. COLLEGE_DB TABLES
+-- =====================================
+
+USE college_db;
+
+-- Task 10: courses table
+CREATE TABLE courses (
+    course_id INT,
+    course_name VARCHAR(100),
+    duration INT
+);

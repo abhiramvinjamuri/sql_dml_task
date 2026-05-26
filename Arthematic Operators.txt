@@ -1,0 +1,60 @@
+show DATABASES;
+use company_db;
+SHOW TABLES;
+CREATE TABLE Products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    price DECIMAL(10,2),
+    discount DECIMAL(5,2),
+    stock_quantity INT
+);
+
+CREATE TABLE Employees (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    monthly_salary DECIMAL(10,2),
+    bonus_percent DECIMAL(5,2)
+);
+
+INSERT INTO Products VALUES
+(1, 'Laptop', 50000, 10, 20),
+(2, 'Phone', 20000, 5, 50),
+(3, 'Headphones', 2000, 2, 100),
+(4, 'Keyboard', 1500, 1, 80);
+
+INSERT INTO Employees VALUES
+(1, 'Abhi', 30000, 10),
+(2, 'Rahul', 40000, 15),
+(3, 'Sneha', 35000, 12),
+(4, 'Priya', 45000, 20);
+
+SELECT product_name, price * stock_quantity AS total_value
+FROM Products;
+
+SELECT product_name, price - 5 AS sale_price
+FROM Products;
+
+
+SELECT product_name, price * 1.10 AS new_price
+FROM Products;
+
+SELECT name, monthly_salary * 12 AS annual_salary
+FROM Employees;
+
+SELECT name, monthly_salary * (bonus_percent / 100) AS bonus_amount
+FROM Employees;
+
+SELECT product_id, product_name, product_id % 2 AS remainder
+FROM Products;
+
+SELECT product_name, stock_quantity / 4 AS stock_per_warehouse
+FROM Products;
+
+SELECT product_name, price - 2 AS profit_per_unit
+FROM Products;
+
+SELECT name, monthly_salary + 200 AS total_compensation
+FROM Employees;
+
+SELECT product_name, (price * 50) - 100 AS bulk_price
+FROM Products;

@@ -1,0 +1,142 @@
+--Comparision Operators
+
+CREATE TABLE products (
+    product_name VARCHAR(50),
+    price DECIMAL(10,2),
+    stock_quantity INT
+);
+
+INSERT INTO products VALUES
+('Pen', 10.50, 100),
+('Notebook', 50.00, 30),
+('Bag', 500.00, 5),
+('Shoes', 1500.75, 20),
+('Watch', 250.00, 8),
+('Laptop', 50000.00, 3);
+
+1. Price exactly 500
+SELECT product_name
+FROM products
+WHERE price = 500;
+
+2.Stock less than 10
+SELECT product_name
+FROM products
+WHERE stock_quantity < 10;
+
+3. Price greater than 1000
+SELECT product_name
+FROM products
+WHERE price > 1000;
+
+4. Price less than or equal to 250
+SELECT product_name
+FROM products
+WHERE price <= 250;
+
+5. Stock greater than or equal to 50
+SELECT product_name
+FROM products
+WHERE stock_quantity >= 50;
+
+6. Product name is NOT 'Pen'
+SELECT product_name
+FROM products
+WHERE product_name != 'Pen';
+
+-- Logical Operators
+
+CREATE TABLE employees (
+    name VARCHAR(50),
+    salary DECIMAL(10,2),
+    department VARCHAR(50),
+    city VARCHAR(50)
+);
+
+INSERT INTO employees VALUES
+('Abhi', 45000, 'Sales', 'Hyderabad'),
+('Rahul', 30000, 'Finance', 'Chennai'),
+('Sneha', 65000, 'IT', 'Hyderabad'),
+('Priya', 70000, 'Sales', 'Bangalore'),
+('Kiran', 50000, 'HR', 'Mumbai'),
+('Anil', 25000, 'Finance', 'Hyderabad');
+
+1. Sales department AND salary > 40000
+SELECT name
+FROM employees
+WHERE department = 'Sales' AND salary > 40000;
+
+2. City = Hyderabad OR salary > 60000
+SELECT name
+FROM employees
+WHERE city = 'Hyderabad' OR salary > 60000;
+
+3. NOT in Finance department
+SELECT name
+FROM employees
+WHERE department != 'Finance';
+
+--Special Operators
+
+CREATE TABLE students (
+    name VARCHAR(50),
+    city VARCHAR(50),
+    marks INT,
+    email VARCHAR(100)
+);
+
+INSERT INTO students VALUES
+('abhi', 'Mumbai', 85, 'abhi@gmail.com'),
+('asrith', 'Pune', 78, NULL),
+('bharadwaj', 'Kolkata', 92, 'bharadwaj@gmail.com'),
+('pranathi', 'Delhi', 88, 'pranathi@gmail.com'),
+('sravya', 'Chennai', 91, NULL),
+('trisha', 'Mumbai', 73, 'trisha@gmail.com'),
+('karthik', 'Hyderabad', 80, 'karthik@gmail.com'),
+('vivek', 'Pune', 67, NULL),
+('kamal', 'Kolkata', 74, 'kamal@gmail.com'),
+('pranya', 'Delhi', 89, 'pranya@gmail.com'),
+('rahul', 'Chennai', 82, 'rahul@gmail.com'),
+('varshitha', 'Mumbai', 95, NULL),
+('yami', 'Pune', 60, 'yami@gmail.com'),
+('bharath', 'Hyderabad', 77, 'bharath@gmail.com');
+
+1. Students from Mumbai, Pune, Kolkata
+SELECT name
+FROM students
+WHERE city IN ('Mumbai', 'Pune', 'Kolkata');
+
+2. NOT from Delhi or Chennai
+SELECT name
+FROM students
+WHERE city NOT IN ('Delhi', 'Chennai');
+
+3. Email is NULL
+SELECT name
+FROM students
+WHERE email IS NULL;
+
+4. Email is NOT NULL
+SELECT name
+FROM students
+WHERE email IS NOT NULL;
+
+5. Name starts with 'S'
+SELECT name
+FROM students
+WHERE name LIKE 's%';
+
+6. Name ends with 'a'
+SELECT name
+FROM students
+WHERE name LIKE '%a';
+
+7. Name has exactly 4 letters
+SELECT name
+FROM students
+WHERE name LIKE '____';
+
+8. Name does NOT start with 'R'
+SELECT name
+FROM students
+WHERE name NOT LIKE 'r%';
